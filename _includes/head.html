@@ -39,7 +39,11 @@ class NoProxy extends HTMLAnchorElement {
   connectedCallback() {
     this.addEventListener("click", e => {
       e.preventDefault();
-      window.open(this.href, '_blank', 'location=yes,scrollbars=yes,status=yes');
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.hasAttribute('canvas')) {
+      	window.open(this.canvas, '_blank', 'location=yes,scrollbars=yes,status=yes');
+      } else {
+      	window.open(this.href, '_blank', 'location=yes,scrollbars=yes,status=yes');
+      }
     });
   }
 }
