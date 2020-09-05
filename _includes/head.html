@@ -40,9 +40,11 @@ class NoProxy extends HTMLAnchorElement {
     this.addEventListener("click", e => {
       e.preventDefault();
       if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
-      	window.open(this.dataset.canvas, '_blank', 'location=yes,scrollbars=yes,status=yes');
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+      	window.open(this.dataset.canvas.substring(n), '_blank');
       } else {
-      	window.open(this.href, '_blank', 'location=yes,scrollbars=yes,status=yes');
+      	window.open(this.href, '_blank');
       }
     });
   }
