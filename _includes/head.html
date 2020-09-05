@@ -9,10 +9,7 @@
 
 
 <script>
-var mylink = document.registerElement('my-link', {
-  prototype: Object.create(HTMLAnchorElement.prototype),
-  extends: 'a'
-});
+window.customElements.define('my-link', HTMLAnchorElement)
 </script>
 
 <script>
