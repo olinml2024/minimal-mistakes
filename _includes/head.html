@@ -9,7 +9,11 @@
 
 
 <script>
-window.customElements.define('my-link', HTMLAnchorElement)
+window.customElements.define('my-link', class extends HTMLAnchorElmeent {
+  constructor() {
+   super();
+  }
+});
 </script>
 
 <script>
