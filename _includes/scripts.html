@@ -1,16 +1,4 @@
 <script type="text/javascript">
-
-class ConfirmLink extends HTMLAnchorElement {
-  connectedCallback() {
-    this.addEventListener("click", e => {
-      const result = confirm(`Are you sure you want to go to '${this.href}'?`);
-      if (!result) e.preventDefault();
-    });
-  }
-}
-
-customElements.define("confirm-link", ConfirmLink, { extends: "a" });
-
 MathJax = {
   options: {
     renderActions: {
