@@ -52,6 +52,17 @@ class NoProxy extends HTMLAnchorElement {
 
 customElements.define("no-proxy", NoProxy, { extends: "a" });
 
+class ConfirmLink extends HTMLAnchorElement {
+  connectedCallback() {
+    this.addEventListener("click", e => {
+      const result = confirm(`Are you sure you want to go to '${this.href}'?`);
+      if (!result) e.preventDefault();
+    });
+  }
+}
+
+customElements.define("confirm-link", ConfirmLink, { extends: "a" });
+
 </script>
 
 <script>
