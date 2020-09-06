@@ -47,6 +47,18 @@ class NoProxy extends HTMLAnchorElement {
       	window.open(this.href, '_blank');
       }
     });
+
+    this.addEventListener("click touchstart", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
+        // get rid of proxy if it was added
+        var n = this.dataset.canvas.search('https://olin.instructure.com');
+      	window.open(this.dataset.canvas.substring(n), '_blank');
+      } else {
+      	window.open(this.href, '_blank');
+      }
+    });
   }
 }
 
