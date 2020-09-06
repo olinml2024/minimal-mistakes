@@ -39,24 +39,6 @@ class NoProxy extends HTMLAnchorElement {
   connectedCallback() {
     this.addEventListener("click", e => {
       e.preventDefault();
-      e.stopPropagation();
-   	const result = confirm(
-            `Are you sure you want to go to '${this.href}'?`
-        );
-      if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
-        // get rid of proxy if it was added
-        var n = this.dataset.canvas.search('https://olin.instructure.com');
-      	window.open(this.dataset.canvas.substring(n), '_blank');
-      } else {
-      	window.open(this.href, '_blank');
-      }
-    });
-    this.addEventListener("touchstart", e => {
-      e.preventDefault();
-      e.stopPropagation();
-   	const result = confirm(
-            `Are you sure you want to go to '${this.href}'?`
-        );
       if (document.referrer.startsWith('https://lms.hypothes.is') && this.dataset.hasOwnProperty('canvas')) {
         // get rid of proxy if it was added
         var n = this.dataset.canvas.search('https://olin.instructure.com');
