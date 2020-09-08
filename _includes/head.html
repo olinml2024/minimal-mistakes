@@ -11,9 +11,9 @@ class AnchorNoProxy extends HTMLElement {
     const href = this.getAttribute("href") || "#";
     if (this.dataset.hasOwnProperty('canvas')) {
         const canvasURL = this.dataset.canvas;
-        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}" data-canvas="${canvasURL}"><slot></slot></a>`;
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}" data-canvas="${canvasURL}"><slot></slot></a>`;
     } else {
-        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}"><slot></slot></a>`;
+        this.shadowRoot.innerHTML = `<style>a:hover, a:active { outline: 0; }\na { color: #5197ad; }\na:visited { color: #5197ad; }\na:hover { color: #266477; outline: 0; }</style><a href="${href}"><slot></slot></a>`;
     }
     this._$a = this.shadowRoot.querySelector("a");
     this._$a.addEventListener("click", e => {
